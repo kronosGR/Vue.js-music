@@ -1,5 +1,8 @@
 # music
 
+## Information
+* State management (Vuex)
+
 ## Project setup
 ```
 yarn install
