@@ -1,5 +1,9 @@
 # music
 
+* Components
+* Styles with tailwind (tailwindcss)
+* Form Validation (vee-validate)
+
 ## Information
 * State management (Vuex)
 
