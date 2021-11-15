@@ -2,7 +2,7 @@
 
 * Components
 * Styles with tailwind (tailwindcss)
-* Form Validation (vee-validate)
+* Form Validation (vee-validate, @vee-validate/rules)
 
 ## Information
 * State management (Vuex)
