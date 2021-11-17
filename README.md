@@ -3,6 +3,8 @@
 * Components
 * Styles with tailwind (tailwindcss)
 * Form Validation (vee-validate, @vee-validate/rules)
+* Firebase (firebase)
+* * DB with firestore
 
 ## Information
 * State management (Vuex)
