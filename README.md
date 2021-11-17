@@ -5,6 +5,7 @@
 * Form Validation (vee-validate, @vee-validate/rules)
 * Firebase (firebase)
 * * DB with firestore
+* * Authentication
 
 ## Information
 * State management (Vuex)
