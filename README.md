@@ -1,6 +1,7 @@
 # music
 
 * Components
+* Routes
 * Styles with tailwind (tailwindcss)
 * Form Validation (vee-validate, @vee-validate/rules)
 * Firebase (firebase)
