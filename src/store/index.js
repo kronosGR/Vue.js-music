@@ -21,7 +21,7 @@ export default createStore({
     async register({ commit }, payload) {
       const userCred = await auth.createUserWithEmailAndPassword(
         payload.email,
-        payload.password
+        payload.password,
       );
 
       await usersCollection.doc(userCred.user.uid).set({
@@ -37,12 +37,22 @@ export default createStore({
 
       commit('toggleAuth');
     },
+    async login({ commit }, payload) {
+      await auth.signInWithEmailAndPassword(payload.email, payload.password);
+
+      commit('toggleAuth');
+    },
     init_login({ commit }) {
       const user = auth.currentUser;
 
       if (user) {
         commit('toggleAuth');
       }
+    },
+    async signout({ commit }) {
+      await auth.signOut();
+
+      commit('toggleAuth');
     },
   },
 });
