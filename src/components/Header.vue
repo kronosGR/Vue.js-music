@@ -15,7 +15,9 @@
         <ul class="flex flex-row mt-1">
           <!-- Navigation Links -->
           <li>
-            <router-link class="px-2 text-white"  :to="{ name: 'about' }">About</router-link>
+            <router-link class="px-2 text-white" :to="{ name: 'about' }"
+              >About</router-link
+            >
           </li>
           <li v-if="!userLoggedIn">
             <a class="px-2 text-white" href="#" @click.prevent="toggleAuthModal">
@@ -24,7 +26,9 @@
           </li>
           <template v-else>
             <li>
-              <router-link class="px-2 text-white"  :to="{ name: 'manage' }">Manage</router-link>
+              <router-link class="px-2 text-white" :to="{ name: 'manage' }"
+                >Manage</router-link
+              >
             </li>
             <li>
               <a class="px-2 text-white" href="#" @click.prevent="signout">Logout</a>
@@ -37,7 +41,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState, mapActions } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'Header',
@@ -46,7 +50,13 @@ export default {
   },
   methods: {
     ...mapMutations(['toggleAuthModal']),
-    ...mapActions(['signout']),
+    signout() {
+      this.$store.dispatch('signout');
+
+      if (this.$route.name === 'manage') {
+        this.$router.push({ name: 'home' });
+      }
+    },
     // toggleAuthModal() {
     //   this.$store.commit('toggleAuthModal');
     // },
