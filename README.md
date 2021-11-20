@@ -7,6 +7,7 @@
 * Firebase (firebase)
 * * DB with firestore
 * * Authentication
+* * Storage (save the uploaded files)
 
 ## Information
 * State management (Vuex)
