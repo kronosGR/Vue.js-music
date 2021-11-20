@@ -32,11 +32,13 @@
       </div>
       <hr class="my-6" />
       <div class="mb-4" v-for="upload in uploads" :key="upload.name">
-        <div class="font-bold text-sm">{{ upload.name }}</div>
+        <div class="font-bold text-sm" :class="upload.text_class">
+          <i :class="upload.icon"></i>{{ upload.name }}
+        </div>
         <div class="flex h-4 overflow-hidden bg-gray-200 rounded">
           <div
             class="transition-all progress-bar bg-blue-400"
-            :class="'bg-blue-400'"
+            :class="upload.variant"
             :style="{ witdh: upload.current_progress + '%' }"
           ></div>
         </div>
@@ -75,6 +77,9 @@ export default {
           task,
           current_progress: 0,
           name: file.name,
+          variant: 'bg-blue-400',
+          icon: 'fas fa-spinner fa-spin',
+          text_class: '',
         }) - 1;
 
         task.on('state_changed', (snapshot) => {
