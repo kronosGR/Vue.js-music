@@ -19,6 +19,14 @@
           duration-500
           hover:text-white hover:bg-green-400 hover:border-green-400 hover:border-solid
         "
+        :class="{ 'bg-green-400 border-green-400 border-solid': is_dragover }"
+        @drag.prevent.stop=""
+        @dragstart.prevent.stop=""
+        @dragend.prevent.stop="is_dragover = false"
+        @dragover.prevent.stop="is_dragover = true"
+        @dragenter.prevent.stop="is_dragover = true"
+        @dragleave.prevent.stop="is_dragover = false"
+        @drop.prevent.stop="upload($event)"
       >
         <h5>Drop your files here</h5>
       </div>
@@ -47,6 +55,24 @@
 
 <script>
 export default {
-  name: ' Upload',
+  name: 'Upload',
+  data() {
+    return {
+      is_dragover: false,
+    };
+  },
+  methods: {
+    upload($event) {
+      this.is_dragover = false;
+
+      const files = [...$event.dataTransfer];
+
+      files.forEach((file) => {
+        if (file.type !== 'audio/mpeg') {
+          return;
+        }
+      });
+    },
+  },
 };
 </script>
