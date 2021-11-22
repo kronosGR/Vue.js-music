@@ -22,6 +22,7 @@ module.exports = {
     ],
     'vue/singleline-html-element-content-newline': 'off',
     'vue/multiline-html-element-content-newline': 'off',
+    'operator-linebreak': [2, 'before', { overrides: { '?': 'after', '+=': 'none' } }],
   },
   overrides: [
     {
