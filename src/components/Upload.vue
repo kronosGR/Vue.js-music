@@ -59,12 +59,13 @@ export default {
       uploads: [],
     };
   },
+  props: ['addSong'],
   methods: {
     upload($event) {
       this.is_dragover = false;
 
-      const files = $event.dataTransfer
-        ? [...$event.dataTransfer.files]
+      const files = $event.dataTransfer ?
+        [...$event.dataTransfer.files]
         : [...$event.target.files];
 
       files.forEach((file) => {
@@ -76,15 +77,14 @@ export default {
         const songsRef = storageRef.child(`songs/${file.name}`);
         const task = songsRef.put(file);
 
-        const uploadIndex =
-          this.uploads.push({
-            task,
-            current_progress: 0,
-            name: file.name,
-            variant: 'bg-blue-400',
-            icon: 'fas fa-spinner fa-spin',
-            text_class: '',
-          }) - 1;
+        const uploadIndex = this.uploads.push({
+          task,
+          current_progress: 0,
+          name: file.name,
+          variant: 'bg-blue-400',
+          icon: 'fas fa-spinner fa-spin',
+          text_class: '',
+        }) - 1;
 
         task.on(
           'state_changed',
@@ -109,7 +109,10 @@ export default {
             };
 
             song.url = await task.snapshot.ref.getDownloadURL();
-            await songsCollection.add(song);
+            const songRef = await songsCollection.add(song);
+            const songSnapshot = await songRef.get();
+
+            this.addSong(songSnapshot);
 
             this.uploads[uploadIndex].variant = 'bg-green-400';
             this.uploads[uploadIndex].icon = 'fas fa-check';
