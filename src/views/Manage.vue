@@ -18,6 +18,8 @@
               :updateSong="updateSong"
               :index="i"
               :removeSong="removeSong"
+              :updateUnsavedFlag="updateUnsavedFlag"
+            />
             />
           </div>
         </div>
@@ -41,16 +43,17 @@ export default {
   data() {
     return {
       songs: [],
+      unsavedFlag: false,
     };
   },
   async created() {
     const snapshot = await songsCollection.where('uid', '==', auth.currentUser.uid).get();
     snapshot.forEach(this.addSong);
   },
-  beforeRouteLeave(to, from, next) {
-    this.$refs.upload.cancelUploads();
-    next();
-  },
+  // beforeRouteLeave(to, from, next) {
+  //   this.$refs.upload.cancelUploads();
+  //   next();
+  // },
   methods: {
     updateSong(i, values) {
       this.songs[i].modified_name = values.modified_name;
@@ -67,6 +70,18 @@ export default {
 
       this.songs.push(song);
     },
+    updateUnsavedFlag(value) {
+      this.unsavedFlag = value;
+    },
+  },
+  beforeRouteLeave(to, from, next) {
+    if (!this.unsavedFlag) {
+      next();
+    } else {
+      // eslint-disable-next-line no-alert, no-restricted-globals
+      const leave = confirm('You have unsaved changes. Are you sure you want to leave?');
+      next(leave);
+    }
   },
   // beforeRouteEnter(to, from, next) {
   //   if (store.state.userLoggedIn) {
