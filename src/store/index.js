@@ -5,6 +5,7 @@ export default createStore({
   state: {
     authModalShow: false,
     userLoggedIn: false,
+    currentSong: {},
   },
   mutations: {
     toggleAuthModal: (state) => {
@@ -12,6 +13,9 @@ export default createStore({
     },
     toggleAuth: (state) => {
       state.userLoggedIn = !state.userLoggedIn;
+    },
+    newSong(state, payload) {
+      state.currentSong = payload;
     },
   },
   getters: {
@@ -21,7 +25,7 @@ export default createStore({
     async register({ commit }, payload) {
       const userCred = await auth.createUserWithEmailAndPassword(
         payload.email,
-        payload.password,
+        payload.password
       );
 
       await usersCollection.doc(userCred.user.uid).set({
@@ -53,6 +57,9 @@ export default createStore({
       await auth.signOut();
 
       commit('toggleAuth');
+    },
+    async newSong({ commit }, payload) {
+      commit('newSong', payload);
     },
   },
 });
