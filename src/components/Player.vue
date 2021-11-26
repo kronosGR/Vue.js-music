@@ -1,15 +1,14 @@
 <template>
-  <app-header />
-
-  <router-view></router-view>
-
-  <app-player> <!-- Player -->
+  <!-- Player -->
   <div class="fixed bottom-0 left-0 bg-white p-5 pb-4 text-left align-top w-full h-16">
     <div class="relative">
       <!-- Play/Pause Button -->
       <div class="float-left w-7 h-7 leading-3">
-        <button type="button">
-          <i class="fa fa-play text-gray-500 text-xl"></i>
+        <button type="button" @click.prevent="toggleAudio">
+          <i
+            class="fa text-gray-500 text-xl"
+            :class="{ 'fa-play': !playing, 'fa-pause': playing }"
+          ></i>
         </button>
       </div>
       <!-- Current Position -->
@@ -39,25 +38,21 @@
         <span class="player-duration">03:06</span>
       </div>
     </div>
-  </div></app-player>
-
-  <auth-modal />
+  </div>
 </template>
 
 <script>
-import AppHeader from './components/Header.vue';
-import AuthModal from './components/Auth.vue';
-import AppPlayer from '@/components/Player.vue';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
-  name: 'App',
-  components: {
-    AppHeader,
-    AuthModal,
-    AppPlayer,
+  name: 'Player',
+  computed: {
+    ...mapGetters(['playing']),
   },
-  created() {
-    this.$store.dispatch('init_login');
+  methods: {
+    ...mapActions(['toggleAudio']),
   },
 };
 </script>
+
+<style></style>
