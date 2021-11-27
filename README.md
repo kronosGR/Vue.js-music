@@ -4,6 +4,7 @@
 * Routes with named links 
 * Styles with tailwind (tailwindcss)
 * Form Validation (vee-validate, @vee-validate/rules)
+* Custom Directives
 * Firebase (firebase)
 * * DB with firestore
 * * Authentication
