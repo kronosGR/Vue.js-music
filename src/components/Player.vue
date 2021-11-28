@@ -55,11 +55,11 @@ export default {
   name: 'Player',
   computed: {
     ...mapGetters(['playing']),
-    ...mapState(['seek', 'duration', 'playerProgress', 'currentSong']),
+    ...mapState(['seek', 'duration', 'playerProgress', 'currentSong'])
   },
   methods: {
-    ...mapActions(['toggleAudio', 'updateSeek']),
-  },
+    ...mapActions(['toggleAudio', 'updateSeek'])
+  }
 };
 </script>
 

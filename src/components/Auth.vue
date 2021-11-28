@@ -97,21 +97,21 @@ export default {
   name: 'Auth',
   components: {
     AppLoginForm,
-    AppRegisterForm,
+    AppRegisterForm
   },
   data() {
     return {
-      tab: 'login',
+      tab: 'login'
     };
   },
   computed: {
     // ...mapState({
     //   modal: 'authModalShow',
     // }),
-    ...mapState(['authModalShow']),
+    ...mapState(['authModalShow'])
   },
   methods: {
-    ...mapMutations(['toggleAuthModal']),
-  },
+    ...mapMutations(['toggleAuthModal'])
+  }
 };
 </script>

@@ -96,35 +96,35 @@ export default {
   props: {
     song: {
       type: Object,
-      required: true,
+      required: true
     },
     updateSong: {
       type: Function,
-      required: true,
+      required: true
     },
     index: {
       type: Number,
-      required: true,
+      required: true
     },
     removeSong: {
       type: Function,
-      required: true,
+      required: true
     },
     updateUnsavedFlag: {
-      type: Function,
-    },
+      type: Function
+    }
   },
   data() {
     return {
       showForm: false,
       schema: {
         modified_name: 'required',
-        genre: 'alpha_spaces',
+        genre: 'alpha_spaces'
       },
       in_submission: false,
       show_alert: false,
       alert_variant: 'bg-blue-500',
-      alert_message: 'Please wait, updating song',
+      alert_message: 'Please wait, updating song'
     };
   },
   methods: {
@@ -157,7 +157,7 @@ export default {
       await songRef.delete();
       await songsCollection.doc(this.song.docID).delete();
       this.removeSong(this.index);
-    },
-  },
+    }
+  }
 };
 </script>

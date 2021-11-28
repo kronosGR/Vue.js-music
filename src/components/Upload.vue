@@ -56,7 +56,7 @@ export default {
   data() {
     return {
       is_dragover: false,
-      uploads: [],
+      uploads: []
     };
   },
   props: ['addSong'],
@@ -83,7 +83,7 @@ export default {
           name: file.name,
           variant: 'bg-blue-400',
           icon: 'fas fa-spinner fa-spin',
-          text_class: '',
+          text_class: ''
         }) - 1;
 
         task.on(
@@ -105,7 +105,7 @@ export default {
               original_name: task.snapshot.ref.name,
               modified_name: task.snapshot.ref.name,
               genre: '',
-              comment_count: 0,
+              comment_count: 0
             };
 
             song.url = await task.snapshot.ref.getDownloadURL();
@@ -125,12 +125,12 @@ export default {
       this.uploads.forEach((upload) => {
         upload.task.cancel();
       });
-    },
+    }
   },
   beforeUnmount() {
     this.uploads.forEach((upload) => {
       upload.task.cancel();
     });
-  },
+  }
 };
 </script>

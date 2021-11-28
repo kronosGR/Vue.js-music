@@ -11,7 +11,7 @@ export default createStore({
     sound: {},
     seek: '00:00',
     duration: '00:00',
-    playerProgress: '0%',
+    playerProgress: '0%'
   },
   mutations: {
     toggleAuthModal: (state) => {
@@ -24,7 +24,7 @@ export default createStore({
       state.currentSong = payload;
       state.sound = new Howl({
         src: [payload.url],
-        html5: true,
+        html5: true
       });
     },
     updatePosition(state) {
@@ -32,7 +32,7 @@ export default createStore({
       state.duration = helper.formatTime(state.sound.duration());
 
       state.playerProgress = `${(state.sound.seek() / state.sound.duration()) * 100}%`;
-    },
+    }
   },
   getters: {
     // authModalShow: (state) => state.authModalShow,
@@ -42,7 +42,7 @@ export default createStore({
       }
 
       return false;
-    },
+    }
   },
   actions: {
     async register({ commit }, payload) {
@@ -55,11 +55,11 @@ export default createStore({
         name: payload.name,
         email: payload.email,
         age: payload.age,
-        country: payload.country,
+        country: payload.country
       });
 
       await userCred.user.updateProfile({
-        displayName: payload.name,
+        displayName: payload.name
       });
 
       commit('toggleAuth');
@@ -129,6 +129,6 @@ export default createStore({
       state.sound.once('seek', () => {
         dispatch('progress');
       });
-    },
-  },
+    }
+  }
 });

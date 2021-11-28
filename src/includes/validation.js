@@ -3,7 +3,7 @@ import {
   Form as VeeForm,
   Field as VeeField,
   defineRule,
-  configure,
+  configure
 } from 'vee-validate';
 import {
   required,
@@ -14,7 +14,7 @@ import {
   min_value as minVal,
   max_value as maxVal,
   confirmed,
-  not_one_of as excluded,
+  not_one_of as excluded
 } from '@vee-validate/rules';
 
 export default {
@@ -50,7 +50,7 @@ export default {
           country_excluded:
             'Due to restrictions, we do not accept users from this location',
           passwords_mismatch: "The passwords don't match",
-          tos: 'You must accept the Terms of Service',
+          tos: 'You must accept the Terms of Service'
         };
 
         const message = messages[ctx.rule.name] ?
@@ -62,7 +62,7 @@ export default {
       validateOnBlur: true,
       validateOnChange: true,
       validateOnInput: false,
-      validateOnModelUpdate: true,
+      validateOnModelUpdate: true
     });
-  },
+  }
 };

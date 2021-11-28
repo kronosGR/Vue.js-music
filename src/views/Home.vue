@@ -51,16 +51,16 @@ import IconSecondary from '@/directives/icon-secondary';
 export default {
   name: 'Home',
   components: {
-    AppSongItem,
+    AppSongItem
   },
-  directives:{
-    'icon-secondary': IconSecondary,
+  directives: {
+    'icon-secondary': IconSecondary
   },
   data() {
     return {
       songs: [],
       maxPerPage: 3,
-      pendingRequest: false,
+      pendingRequest: false
     };
   },
   async created() {
@@ -102,11 +102,11 @@ export default {
       snapshots.forEach((document) => {
         this.songs.push({
           docID: document.id,
-          ...document.data(),
+          ...document.data()
         });
       });
       this.pendingRequest = false;
-    },
-  },
+    }
+  }
 };
 </script>

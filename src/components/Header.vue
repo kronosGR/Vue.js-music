@@ -46,7 +46,7 @@ import { mapMutations, mapState } from 'vuex';
 export default {
   name: 'Header',
   computed: {
-    ...mapState(['userLoggedIn']),
+    ...mapState(['userLoggedIn'])
   },
   methods: {
     ...mapMutations(['toggleAuthModal']),
@@ -56,10 +56,10 @@ export default {
       if (this.$route.meta.requiresAuth) {
         this.$router.push({ name: 'home' });
       }
-    },
+    }
     // toggleAuthModal() {
     //   this.$store.commit('toggleAuthModal');
     // },
-  },
+  }
 };
 </script>

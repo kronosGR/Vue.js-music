@@ -22,11 +22,11 @@ export default {
   components: {
     AppHeader,
     AuthModal,
-    AppPlayer,
+    AppPlayer
   },
   created() {
     this.$store.dispatch('init_login');
-  },
+  }
 };
 </script>
 

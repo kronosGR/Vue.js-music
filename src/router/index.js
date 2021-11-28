@@ -9,12 +9,12 @@ const routes = [
   {
     name: 'home',
     path: '/',
-    component: Home,
+    component: Home
   },
   {
     name: 'about',
     path: '/about',
-    component: About,
+    component: About
   },
   {
     name: 'manage',
@@ -22,32 +22,32 @@ const routes = [
     path: '/manage-music',
     component: Manage,
     meta: {
-      requiresAuth: true,
+      requiresAuth: true
     },
     before: (to, from, next) => {
       console.log('Manage Route Guard');
       next();
-    },
+    }
   },
   {
     path: '/manage',
-    redirect: { name: 'manage' },
+    redirect: { name: 'manage' }
   },
   {
     name: 'song',
     path: '/song/:id',
-    component: Song,
+    component: Song
   },
   {
     path: '/:catchAll(.*)*',
-    redirect: { name: 'home' },
-  },
+    redirect: { name: 'home' }
+  }
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  linkExactActiveClass: 'text-yellow-500',
+  linkExactActiveClass: 'text-yellow-500'
 });
 
 router.beforeEach((to, from, next) => {

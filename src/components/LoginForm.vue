@@ -78,12 +78,12 @@ export default {
     return {
       loginchema: {
         email: 'required|email',
-        password: 'required|min:3|max:32',
+        password: 'required|min:3|max:32'
       },
       login_in_submission: false,
       login_show_alert: false,
       login_alert_variant: 'bg-blue-500',
-      login_alert_msg: 'Please wait! We are logging you in',
+      login_alert_msg: 'Please wait! We are logging you in'
     };
   },
   methods: {
@@ -105,7 +105,7 @@ export default {
       this.login_alert_variant = 'bg-green-500';
       this.login_alert_msg = 'Success! You are logged in';
       window.location.reload();
-    },
-  },
+    }
+  }
 };
 </script>

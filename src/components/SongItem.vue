@@ -39,6 +39,6 @@
 <script>
 export default {
   name: 'SongItem ',
-  props: ['song'],
+  props: ['song']
 };
 </script>

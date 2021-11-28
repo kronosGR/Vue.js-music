@@ -122,14 +122,14 @@ export default {
     return {
       song: {},
       schema: {
-        comment: 'required|min:3',
+        comment: 'required|min:3'
       },
       comment_in_submission: false,
       comment_show_alert: false,
       comment_alert_variant: 'bg-blue-500',
       comment_alert_message: 'Please wait! ',
       comments: [],
-      sort: '1',
+      sort: '1'
     };
   },
   computed: {
@@ -141,7 +141,7 @@ export default {
         }
         return new Date(a.datePosted) - new Date(b.datePosted);
       });
-    },
+    }
   },
   async created() {
     const docSnapshot = await songsCollection.doc(this.$route.params.id).get();
@@ -171,14 +171,14 @@ export default {
         datePosted: new Date().toString(),
         sid: this.$route.params.id,
         name: auth.currentUser.displayName,
-        uid: auth.currentUser.uid,
+        uid: auth.currentUser.uid
       };
 
       await commentsCollection.add(comment);
 
       this.song.comment_count += 1;
       await songsCollection.doc(this.$route.params.id).update({
-        comment_count: this.song.comment_count,
+        comment_count: this.song.comment_count
       });
 
       this.getComments();
@@ -199,10 +199,10 @@ export default {
       snapshots.forEach((doc) => {
         this.comments.push({
           dodID: doc.id,
-          ...doc.data(),
+          ...doc.data()
         });
       });
-    },
+    }
   },
   watch: {
     sort(newVal) {
@@ -211,11 +211,11 @@ export default {
       }
       this.$router.push({
         query: {
-          sort: newVal,
-        },
+          sort: newVal
+        }
       });
-    },
-  },
+    }
+  }
 };
 </script>
 

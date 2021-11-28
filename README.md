@@ -5,6 +5,7 @@
 * Styles with tailwind (tailwindcss)
 * Form Validation (vee-validate, @vee-validate/rules)
 * Custom Directives   
+* internationalization (i18n)
 * Firebase (firebase)
 * * DB with firestore
 * * Authentication
