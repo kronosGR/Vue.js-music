@@ -26,10 +26,10 @@ export default createI18n({
   messages: loadLocaleMessages(),
   numberFormats: {
     en: {
-      currency: { style: 'currency', currency: 'USD' },
+      currency: { style: 'currency', currency: 'USD' }
     },
     ja: {
-      currency: { style: 'currency', currency: 'JPY' },
-    },
-  },
+      currency: { style: 'currency', currency: 'JPY' }
+    }
+  }
 });

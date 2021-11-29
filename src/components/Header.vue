@@ -56,7 +56,7 @@ export default {
     ...mapState(['userLoggedIn']),
     currentLocale() {
       return this.$i18n.locale === 'fr' ? 'French' : 'English';
-    },
+    }
   },
   methods: {
     ...mapMutations(['toggleAuthModal']),
@@ -69,10 +69,10 @@ export default {
     },
     changeLocale() {
       this.$i18n.locale = this.$i18n.locale === 'fr' ? 'en' : 'fr';
-    },
+    }
     // toggleAuthModal() {
     //   this.$store.commit('toggleAuthModal');
     // },
-  },
+  }
 };
 </script>

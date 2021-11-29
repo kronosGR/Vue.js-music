@@ -10,6 +10,7 @@
 * * DB with firestore
 * * Authentication
 * * Storage (save the uploaded files)
+* PWA (cli-plugin-pwa)
 
 ## Information
 * State management (Vuex)
