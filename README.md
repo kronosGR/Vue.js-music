@@ -10,7 +10,7 @@
 * * DB with firestore
 * * Authentication
 * * Storage (save the uploaded files)
-* PWA (cli-plugin-pwa)
+* PWA (cli-plugin-pwa). Create manifest file by building the project
 
 ## Information
 * State management (Vuex)
