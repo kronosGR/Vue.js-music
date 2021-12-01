@@ -20,6 +20,7 @@ describe('SongItem.vue', () => {
 
     const compositionAuthor = wrapper.find('.text-gray-500');
 
+    //  avoid boolean assertions ===
     expect(compositionAuthor.text()).toBe(song.display_name);
   });
 });
