@@ -11,6 +11,8 @@
 * * Authentication
 * * Storage (save the uploaded files)
 * PWA (cli-plugin-pwa). Create manifest file by building the project
+* Loading progress(nprogress)
+* Testing with Jest
 
 ## Information
 * State management (Vuex)
