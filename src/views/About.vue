@@ -8,8 +8,8 @@
 import dummyModule from '@/store/modules/dummy';
 
 export default {
-  created() {
-    this.$store.register.Module('dummy', dummyModule);
-  },
+  // created() {
+  //   this.$store.register.Module('dummy', dummyModule);
+  // },
 };
 </script>
